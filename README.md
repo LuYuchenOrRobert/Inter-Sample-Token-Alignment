@@ -1,4 +1,4 @@
 # Inter-Sample-Token-Alignment
-Inter-Sample Token Alignment Attention (ISTA2) for Vision Transformers
+ISTA2: Inter-Sample Token Alignment for Vision Transformers
 
-The Code is COMING SOON!
+The code has been anonymised for review purposes. The instructions to run the code are COMING SOON!
