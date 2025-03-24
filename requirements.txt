@@ -1,0 +1,24 @@
+# General requirements
+numpy==1.26.4
+pyyaml==6.0.1
+scipy==1.15.2
+timm==1.0.11
+torch==2.4.0
+torchvision==0.19.0
+yacs==0.1.8
+
+# Requirements for PVTv2
+mmcv==2.2.0
+
+# Requirements for Swin Transformer
+opencv-python==4.11.0.86
+termcolor==2.5.0
+
+# Requirements for CvT
+einops==0.8.0
+json_tricks==3.17.3
+pandas==2.2.3
+ptflops==0.7.4
+scikit-learn==1.6.1
+tensorboardX==2.6.2.2
+tensorwatch==0.9.1
