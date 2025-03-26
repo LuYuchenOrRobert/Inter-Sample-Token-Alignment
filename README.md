@@ -80,7 +80,7 @@ TBC
 
 #### Clone Repository
 
-```
+```bash
 git clone https://anonymous.4open.science/r/Inter-Sample-Token-Alignment.git # To be replaced with the original URL
 cd Inter-Sample-Token-Alignment
 ```
