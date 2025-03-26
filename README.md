@@ -169,12 +169,12 @@ To evaluate a pre-trained model on ImageNet-1K validation set with a single node
   cd PVT/classification
   # For single GPU evaluation
   torchrun --nproc_per_node 1 --master_port 11000 main.py --eval \
-    --config <config-file-path> --resume <checkpoint-path> --data-path <imagenet-path> \
-    [--batch-size <batch-size-per-gpu> ...]
+      --config <config-file-path> --resume <checkpoint-path> --data-path <imagenet-path> \
+      [--batch-size <batch-size-per-gpu> ...]
   # For multi-GPU evaluation
   torchrun --nproc_per_node <num-of-gpus-to-use> --master_port 11000 main.py --eval --dist-eval \
-    --config <config-file-path> --resume <checkpoint-path> --data-path <imagenet-path> \
-    [--batch-size <batch-size-per-gpu> ...]
+      --config <config-file-path> --resume <checkpoint-path> --data-path <imagenet-path> \
+      [--batch-size <batch-size-per-gpu> ...]
   ```
 
 - Swin Transformer
@@ -182,8 +182,8 @@ To evaluate a pre-trained model on ImageNet-1K validation set with a single node
   ```bash
   cd SWIN/classification
   torchrun --nproc_per_node <num-of-gpus-to-use> --master_port 12000 main.py --eval \
-    --cfg <config-file-path> --resume <checkpoint-path> --data-path <imagenet-path> \
-    [--batch-size <batch-size-per-gpu> ...]
+      --cfg <config-file-path> --resume <checkpoint-path> --data-path <imagenet-path> \
+      [--batch-size <batch-size-per-gpu> ...]
   ```
 
 - CvT
