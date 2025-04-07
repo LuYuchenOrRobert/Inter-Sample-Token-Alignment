@@ -475,7 +475,7 @@ class ISTA2(nn.Module):
         b, p1, dim = q.shape
         _, p2, _ = k.shape
         d = dim // self.num_heads
-        multi_samples = (real_b > 1) if self.is_swin else (b > 1)
+        multi_samples = self.across_gpus or (real_b if self.is_swin else b) > 1
 
         # q: (b, p1, h*d) -> (h, b, p1, d)
         q = q.reshape(b, p1, self.num_heads, d).permute(2, 0, 1, 3)
