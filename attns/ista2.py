@@ -5,6 +5,15 @@ Vision Transformers' submitted to ICCV 2025. All rights reserved.
 
 References:
     * https://github.com/facebookresearch/moco-v3
+
+Important Note:
+    1. If indexing class and background tokens (the only order-dependent operation in `ista2_v`) is not required,
+      the spatial arrangement of patch tokens within individual sample will not affect the outcome of each
+      patch token - only their alignment across query, key, and value tensors matters, since `ista2_v` computes
+      cross-sample attention. Thus, when adapting `ISTA2` to Swin Transformer, we can keep only reshape operations
+      but omit rolling operations (i.e., `torch.roll` before `window_partition` and after `window_reverse`) and
+      permutations (i.e., `torch.Tensor.permute` in `window_partition` and `window_reverse`). This streamlines
+      the pipeline without compromising functionality.
 """
 
 import math
@@ -499,7 +508,8 @@ class ISTA2(nn.Module):
                 self._update_random_token_indices(real_p2, device=k.device)
 
             if self.is_swin:
-                # reverse the window partitioned query, key and value tensors
+                # reverse the window partitioned query, key and value tensors (for more details about the simplified
+                # window partitioning and reverse operations, please refer to 'Important Note 1' in the header)
                 v = v.reshape(self.num_heads, real_b, real_p2, d)
                 # v: (h, real_b, real_p2, d)
                 v = self.ista2_v(v, v)
